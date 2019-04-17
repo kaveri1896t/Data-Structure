@@ -1,0 +1,11 @@
+C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\bin\Debug\netcoreapp2.1\Data_Structure.deps.json
+C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\bin\Debug\netcoreapp2.1\Data_Structure.runtimeconfig.json
+C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\bin\Debug\netcoreapp2.1\Data_Structure.runtimeconfig.dev.json
+C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\bin\Debug\netcoreapp2.1\Data_Structure.dll
+C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\bin\Debug\netcoreapp2.1\Data_Structure.pdb
+C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\obj\Debug\netcoreapp2.1\Data_Structure.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\obj\Debug\netcoreapp2.1\Data_Structure.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\obj\Debug\netcoreapp2.1\Data_Structure.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\obj\Debug\netcoreapp2.1\Data_Structure.AssemblyInfo.cs
+C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\obj\Debug\netcoreapp2.1\Data_Structure.dll
+C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\obj\Debug\netcoreapp2.1\Data_Structure.pdb
