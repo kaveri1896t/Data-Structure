@@ -31,6 +31,9 @@ namespace Data_Structure
                     Console.WriteLine("5.Calender");
                     Console.WriteLine("6.Palindrome Checker");
                     Console.WriteLine("7.Prime number 2D array");
+                    Console.WriteLine("8.Prime Anagram number 2D array");
+                    Console.WriteLine("9.Hashing Function");
+
                     int ch = Convert.ToInt32(Console.ReadLine());
                     switch (ch)
                     {
@@ -64,6 +67,14 @@ namespace Data_Structure
 
                         case 7:
                             Prime2DArray.Prime2DOperation();
+                            break;
+
+                        case 8:
+                            PrimeAnagram2DArray.PrimeAnagramFunction();
+                            break;
+
+                        case 9:
+                            InputForHashing.StartHashing();
                             break;
 
                         default:

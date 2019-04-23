@@ -22,7 +22,26 @@ namespace Data_Structure
         public NewNode<T> Head;
 
         /// <summary>
-        /// Adds the node into linked list.
+        /// Write to file 
+        /// </summary>
+        /// <returns>String containing Data each node of linked list</returns>
+        public string FileWrite()
+        {
+            string outputString = null;
+            NewNode<T> currentNode = this.Head;
+
+            //// traversae till end
+            while (currentNode != null)
+            {
+                //// add node data into the string
+                outputString += currentNode.NodeData + "\n";
+            }
+
+            return outputString;
+        }
+
+        /// <summary>
+        /// Adds the into linked list.
         /// </summary>
         /// <param name="list">The list is an instance of Linked List.</param>
         /// <param name="data">The data is to be added into the Linked List.</param>
@@ -235,25 +254,6 @@ namespace Data_Structure
             }
 
             return false;
-        }
-
-        /// <summary>
-        /// Write to file 
-        /// </summary>
-        /// <returns>String containing Data each node of linked list</returns>
-        public string FileWrite()
-        {
-            string outputString = null;
-            NewNode<T> currentNode = this.Head;
-
-            //// traversae till end
-            while (currentNode != null)
-            {
-                //// add node data into the string
-                outputString += currentNode.NodeData + "\n";
-            }
-
-            return outputString;
         }
     }
 }

@@ -117,6 +117,101 @@ namespace Data_Structure
         }
 
         /// <summary>
+        /// Insert prime numbers into Prime Numbers Arrays 
+        /// </summary>
+        /// <returns>array of prime numbers</returns>
+        public static string[,] InsertInto2DPrimeArray(string[,] primeAnagramArray, List<int> anagramNumberList)
+        {
+            string number;
+            int first = 0, second = 0, third = 0, fourth = 0, fifth = 0, sixth = 0, seventh = 0, eighth = 0, nineth = 0, tenth = 0;
+           
+            //// traverse till 1000
+            foreach (int i in anagramNumberList)
+            {
+                if (i > 0 && i < 100)
+                {
+                    number = Convert.ToString(i);
+                    primeAnagramArray[0, first] = number;
+                    first++;
+                }
+
+                ////check prime numbers between 101 to 200
+                else if (i > 100 && i < 200)
+                {
+                    number = Convert.ToString(i);
+                    primeAnagramArray[0, second] = number;
+                    second++;
+                }
+
+                ////check prime numbers between 201 to 300
+                else if (i > 200 && i < 300)
+                {
+                    number = Convert.ToString(i);
+                    primeAnagramArray[0, third] = number;
+                    third++;
+                }
+
+                ////check prime numbers between 301 to 400
+                else if (i > 300 && i < 400)
+                {
+                    number = Convert.ToString(i);
+                    primeAnagramArray[0, fourth] = number;
+                    fourth++;
+                }
+
+                ////check prime numbers between 401 to 500
+                else if (i > 400 && i < 500)
+                {
+                    number = Convert.ToString(i);
+                    primeAnagramArray[0, fifth] = number;
+                    fifth++;
+                }
+
+                ////check prime numbers between 501 to 600
+                else if (i > 500 && i < 600)
+                {
+                    number = Convert.ToString(i);
+                    primeAnagramArray[0, sixth] = number;
+                    sixth++;
+                }
+
+                ////check prime numbers between 601 to 700
+                else if (i > 600 && i < 700)
+                {
+                    number = Convert.ToString(i);
+                    primeAnagramArray[0, seventh] = number;
+                    seventh++;
+                }
+
+                ////check prime numbers between 701 to 800
+                else if (i > 700 && i < 800)
+                {
+                    number = Convert.ToString(i);
+                    primeAnagramArray[0, eighth] = number;
+                    eighth++;
+                }
+
+                ////check prime numbers between 801 to 900
+                else if (i > 800 && i < 900)
+                {
+                    number = Convert.ToString(i);
+                    primeAnagramArray[0, nineth] = number;
+                    nineth++;
+                }
+
+                ////check prime numbers between 901 to 1000
+                else if (i > 900 && i < 1000)
+                {
+                    number = Convert.ToString(i);
+                    primeAnagramArray[0, tenth] = number;
+                    tenth++;
+                }
+            }
+
+            return primeAnagramArray;
+        }
+
+        /// <summary>
         /// return true if the given year is a leap year
         /// </summary>
         /// <param name="year">year passed to check leap year</param>
@@ -154,7 +249,7 @@ namespace Data_Structure
             int d = day + x + (((31 * m) / 12) % 7);
             return d;
         }
-        
+
         /// <summary>
         /// Prints the array.
         /// </summary>
@@ -282,7 +377,7 @@ namespace Data_Structure
         /// <returns>Path as a string</returns>
         public string GetOutputPath()
         {
-            return @"C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\InputFile.txt";
+            return @"C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\OutputFile.txt";
         }
 
         /// <summary>
@@ -294,7 +389,7 @@ namespace Data_Structure
         {
             //// The current node is temporary node for traversing into Linked List
             NewNode<string> currentNode = list.Head;
-            
+
             while (currentNode != null)
             {
                 NewNode<string> currentNode1 = currentNode.Next;
@@ -305,8 +400,8 @@ namespace Data_Structure
                         this.tempNode.NodeData = currentNode.NodeData;
                         currentNode.NodeData = currentNode1.NodeData;
                         currentNode1.NodeData = this.tempNode.NodeData;
-                    }  
-                        //// traverse till end
+                    }
+                    //// traverse till end
                     currentNode1 = currentNode1.Next;
                 }
 

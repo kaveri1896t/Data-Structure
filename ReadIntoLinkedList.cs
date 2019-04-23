@@ -125,17 +125,11 @@ namespace Data_Structure
                     ans = Convert.ToChar(Console.ReadLine());
                 }
                 while (ans == 'Y' || ans == 'y');
-
-                //// Write into the specified file
-                string outputText = this.list.FileWrite();
-                File.WriteAllText(this.utilityObject.GetOutputPath(), outputText);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-
-            return;
         }
     }
 }

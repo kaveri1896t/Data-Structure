@@ -1,4 +1,4 @@
-﻿ // --------------------------------------------------------------------------------------------------------------------
+﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="ReadIntegerFromFile.cs" company="Bridgelabz">
 //   Copyright © 2019 Company="BridgeLabz"
 // </copyright>
@@ -23,9 +23,9 @@ namespace Data_Structure
         private Utility<int> utilityObject = new Utility<int>();
 
         /// <summary>
-        /// The list is an instance of Linked List
+        /// The Sort List is an instance of Linked List
         /// </summary>
-        private LinkedList<int> list = new LinkedList<int>();
+        private SortedLinkedList SortList = new SortedLinkedList();
 
         /// <summary>
         /// The text is a string
@@ -37,7 +37,7 @@ namespace Data_Structure
         /// </summary>
         public void OrderedListOperation()
         {
-            
+
             try
             {
                 char ans;
@@ -45,83 +45,74 @@ namespace Data_Structure
                 {
                     Console.WriteLine("1.Read From File To Linked List");
                     Console.WriteLine("2.Print From Linked List");
-                    Console.WriteLine("3.Insert after node into Linked List");
-                    Console.WriteLine("4.Insert at end into Linked List");
-                    Console.WriteLine("5.Remove first node from Linked List");
-                    Console.WriteLine("6.Remove last node from Linked List");
-                    Console.WriteLine("7.Remove specific node from Linked List");
-                    Console.WriteLine("8.Search string into Linked List");
+                    Console.WriteLine("3.Insert node into Linked List");
+                    Console.WriteLine("4.Remove first node from Linked List");
+                    Console.WriteLine("5.Remove last node from Linked List");
+                    Console.WriteLine("6.Remove specific node from Linked List");
+                    Console.WriteLine("7.Search string into Linked List");
                     int ch = Convert.ToInt32(Console.ReadLine());
                     switch (ch)
                     {
                         case 1:
                             this.text = File.ReadAllText(@"C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\InputInteger.txt");
-                            string[] num = this.text.Split('\n');
-                            int[] numbers = new int[num.Length];
-                            for (int n = 0; n < num.Length; n++)
+                            string[] number = this.text.Split('\n');
+                            int[] numbers = new int[number.Length];
+                            for (int n = 0; n < number.Length; n++)
                             {
-                                numbers[n] = int.Parse(num[n]);
+                                numbers[n] = int.Parse(number[n]);
                             }
 
                             foreach (int value in numbers)
                             {
-                                this.list = this.list.AddIntoLinkedList(this.list, value);
+                                this.SortList = this.SortList.AddLastIntoLinkedList(this.SortList, value);
                             }
 
                             break;
 
                         case 2:
                             Console.Write("\nnumbers read from Linked List are :\n");
-                            this.list = this.list.PrintLinkedList(this.list);
+                            this.SortList = this.SortList.SortLinkedList(this.SortList);
+                            this.SortList = this.SortList.PrintLinkedList(this.SortList);
                             break;
 
                         case 3:
-                            Console.Write("\nEnter the node after which new node will be added into LinkedList : ");
-                            int input = Convert.ToInt32(Console.ReadLine());
-                            Console.Write("\nEnter the number you want to add into LinkedList : ");
-                            int number = Convert.ToInt32(Console.ReadLine());
-                            this.list = this.list.AddAfterNodeIntoLinkedList(this.list, input, number);
-                            Console.Write("\nNew Node added into LinkedList : ");
+                            Console.WriteLine("Enter number to add : ");
+                            int input1 = Convert.ToInt32(Console.ReadLine());
+                            this.SortList = this.SortList.AddIntoSortedLinkedList(this.SortList, input1);
+                            Console.WriteLine("\nAfter Insering : ");
+                            this.SortList = this.SortList.PrintLinkedList(this.SortList);
                             break;
 
                         case 4:
-                            Console.WriteLine("Enter number to add : ");
-                            int input1 = Convert.ToInt32(Console.ReadLine());
-                            this.list = this.list.AddIntoLinkedList(this.list, input1);
-                            Console.WriteLine("\nAfter Insering : ");
-                            this.list = this.list.PrintLinkedList(this.list);
+                            this.SortList = this.SortList.RemoveFirstFromLinkedList(this.SortList);
+                            Console.Write("\nNode deleted from LinkedList : ");
                             break;
 
                         case 5:
-                            this.list = this.list.RemoveFirstFromLinkedList(this.list);
+                            this.SortList = this.SortList.RemoveLastFromLinkedList(this.SortList);
                             Console.Write("\nNode deleted from LinkedList : ");
                             break;
 
                         case 6:
-                            this.list = this.list.RemoveLastFromLinkedList(this.list);
+                            Console.Write("\nEnter the number you want to delete from LinkedList : ");
+                            int data = Convert.ToInt32(Console.ReadLine());
+                            this.SortList = this.SortList.RemoveAtPositionFromLinkedList(this.SortList, data);
                             Console.Write("\nNode deleted from LinkedList : ");
                             break;
 
                         case 7:
-                            Console.Write("\nEnter the number you want to delete from LinkedList : ");
-                            int data = Convert.ToInt32(Console.ReadLine());
-                            this.list = this.list.RemoveAtPositionFromLinkedList(this.list, data);
-                            Console.Write("\nNode deleted from LinkedList : ");
-                            break;
-
-                        case 8:
                             Console.Write("\nEnter the word to search from LinkedList : ");
                             int input2 = Convert.ToInt32(Console.ReadLine());
-                            bool flag = this.list.SearchIntoLinkedList(this.list, input2);
+                            bool flag = this.SortList.SearchIntoLinkedList(this.SortList, input2);
                             if (flag == true)
                             {
+                                this.SortList = this.SortList.RemoveAtPositionFromLinkedList(this.SortList, input2);
                                 Console.WriteLine("\nNumber Found... Removing that number from Linked List...");
-                                this.list = this.list.RemoveAtPositionFromLinkedList(this.list, input2);
                             }
                             else
                             {
+                                this.SortList = this.SortList.AddLastIntoLinkedList(this.SortList, input2);
                                 Console.WriteLine("\nNumber not Found... Adding that number into Linked List...");
-                                this.list = this.list.AddIntoLinkedList(this.list, input2);
                             }
 
                             break;
@@ -141,7 +132,7 @@ namespace Data_Structure
             }
 
             return;
-            
+
         }
     }
 }
