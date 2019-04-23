@@ -1,36 +1,80 @@
-﻿using System;
-
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Program.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="Kaveri Tekawade"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace Data_Structure
 {
-    class Program
+    using System;
+
+    /// <summary>
+    /// Program Menu for Multiple methods
+    /// </summary>
+    public class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        public static void Main(string[] args)
         {
             try
             {
-               char ans;
+                char ans;
                 do
                 {
-                    Console.Write("1.Linked List operations ");
-                   /* Console.Write("2.Print From Linked List ");
-                    Console.Write("3.Insert at first into Linked List ");
-                    Console.Write("4.Insert at end into Linked List ");
-                    Console.Write("5.Search string into Linked List ");*/
+                    Console.WriteLine("1.Linked List Operations For String ");
+                    Console.WriteLine("2.Linked List Operations For Integer ");
+                    Console.WriteLine("3.Balanced Parenthesis ");
+                    Console.WriteLine("4.Bank Cash Counter ");
+                    Console.WriteLine("5.Calender");
+                    Console.WriteLine("6.Palindrome Checker");
+                    Console.WriteLine("7.Prime number 2D array");
                     int ch = Convert.ToInt32(Console.ReadLine());
                     switch (ch)
                     {
                         case 1:
-                            ReadIntoLinkedList b = new ReadIntoLinkedList();
+                            ReadIntoLinkedList<string> b = new ReadIntoLinkedList<string>();
                             break;
+
+                        case 2:
+                            ReadIntegerFromFile<int> b1 = new ReadIntegerFromFile<int>();
+                            b1.OrderedListOperation();
+                            break;
+
+                        case 3:
+                            BalanceParenthesis b2 = new BalanceParenthesis();
+                            b2.CheckBalancedParenthesis();
+                            break;
+
+                        case 4:
+                            BankCashCounter bcc = new BankCashCounter();
+                            bcc.BankCashCounterOperations();
+                            break;
+
+                        case 5:
+                            Calendar.DisplayCalendar();
+                            break;
+
+                        case 6:
+                            PalindromeChecker pc = new PalindromeChecker();
+                            pc.PalindromeCheckMethod();
+                            break;
+
+                        case 7:
+                            Prime2DArray.Prime2DOperation();
+                            break;
+
                         default:
                             Console.WriteLine("Invalid Choice...");
                             break;
                     }
 
-                    Console.WriteLine("Do you want to continue in Menu (y/n) : ");
+                    Console.WriteLine("\nDo you want to continue in Menu (y/n) : ");
                     ans = Convert.ToChar(Console.ReadLine());
                 }
-                while (ans == 'Y' || ans == 'y');                
+                while (ans == 'Y' || ans == 'y');
             }
             catch (Exception e)
             {
