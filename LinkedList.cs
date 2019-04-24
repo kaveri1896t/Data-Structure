@@ -41,11 +41,71 @@ namespace Data_Structure
         }
 
         /// <summary>
-        /// Adds the into linked list.
+        /// Adds the node at first into linked list.
         /// </summary>
-        /// <param name="list">The list is an instance of Linked List.</param>
-        /// <param name="data">The data is to be added into the Linked List.</param>
-        /// <returns>updated list</returns>
+        /// <param name="list1">The list1 is an instance of the Linked List.</param>
+        /// <param name="list">The list.</param>
+        /// <param name="data">The data.</param>
+        /// <returns></returns>
+        public LinkedList<T> AddFirstIntoLinkedList(LinkedList<T> list1, List<T> list, T data)
+        {
+            NewNode<T> newNode = new NewNode<T>();
+            newNode.NodeData = data;
+            newNode.Next = null;
+            if (list1.Head == null)
+            {
+                list1.Head = newNode;
+                return list1;
+            }
+            else
+            {
+                newNode.Next = list1.Head;
+                list1.Head = newNode;
+            }
+
+            return list1;
+        }
+
+        /// <summary>
+        /// Adds the last node into linked list.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <param name="list1">The list1.</param>
+        /// <param name="data">The data.</param>
+        /// <returns></returns>
+        public LinkedList<T> AddLastIntoLinkedList(LinkedList<T> list, List<T> list1, T data)
+        {
+            NewNode<T> newNode = new NewNode<T>();
+            newNode.NodeData = data;
+            newNode.Next = null;
+            if (list.Head == null)
+            {
+                list.Head = newNode;
+            }
+            else
+            {
+                //// The current node is temporary node for traversing into Linked List
+                NewNode<T> currentNode = list.Head;
+
+                // Traverse till the end of the list....
+                while (currentNode.Next != null)
+                {
+                    currentNode = currentNode.Next;
+                }
+
+                // Add new node as the Next node to the last node.
+                currentNode.Next = newNode;
+            }
+
+            return list;
+        }
+
+            /// <summary>
+            /// Adds the into linked list.
+            /// </summary>
+            /// <param name="list">The list is an instance of Linked List.</param>
+            /// <param name="data">The data is to be added into the Linked List.</param>
+            /// <returns>updated list</returns>
         public LinkedList<T> AddIntoLinkedList(LinkedList<T> list, T data)
         {
             NewNode<T> newNode = new NewNode<T>();
@@ -54,6 +114,7 @@ namespace Data_Structure
             if (list.Head == null)
             {
                 list.Head = newNode;
+                return list;
             }
             else
             {
@@ -133,6 +194,27 @@ namespace Data_Structure
             }
 
             return list;
+        }
+
+        /// <summary>
+        /// Removes the first node from linked list.
+        /// </summary>
+        /// <param name="list">The list of generic type.</param>
+        /// <returns>Removed Element</returns>
+        public T RemoveFirstLinkedList()
+        {
+            NewNode<T> currentNode = this.Head;
+            T data = this.Head.NodeData;
+
+            //// check if required node is the Head node
+            if (currentNode == this.Head)
+            {
+                ////delete the Head
+                this.Head = currentNode.Next;
+                GC.Collect();
+            }
+
+            return data;
         }
 
         /// <summary>

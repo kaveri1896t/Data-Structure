@@ -42,6 +42,11 @@ namespace Data_Structure
             ////Traverse till end
             while (currentNode != null)
             {
+                if(list.Head.NodeData > data)
+                {
+                    newNode.Next = list.Head;
+                    list.Head = newNode;
+                }
                 if (currentNode.NodeData < data && currentNode.Next.NodeData > data)
                 {
                     newNode.Next = currentNode.Next;
@@ -79,7 +84,6 @@ namespace Data_Structure
                         tempNode.NodeData = currentNode.NodeData;
                         currentNode.NodeData = currentNode1.NodeData;
                         currentNode1.NodeData = tempNode.NodeData;
-                        return list;
                     }
 
                     //// break the links

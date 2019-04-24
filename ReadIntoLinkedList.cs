@@ -50,7 +50,6 @@ namespace Data_Structure
                     Console.WriteLine("5.Remove first node From Linked List");
                     Console.WriteLine("6.Remove Specified node From Linked List");
                     Console.WriteLine("7.Search string into Linked List");
-                    Console.WriteLine("8.Sort the Linked List");
                     int ch = Convert.ToInt32(Console.ReadLine());
                     switch (ch)
                     {
@@ -110,11 +109,6 @@ namespace Data_Structure
                                 this.list = this.list.AddIntoLinkedList(this.list, inputString1);
                             }
 
-                            break;
-
-                        case 8:
-                            this.list = this.utilityObject.SortLinkedList(this.list);
-                            Console.Write("\nLinkedList Sorted... ");
                             break;
 
                         default:

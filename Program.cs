@@ -32,7 +32,8 @@ namespace Data_Structure
                     Console.WriteLine("6.Palindrome Checker");
                     Console.WriteLine("7.Prime number 2D array");
                     Console.WriteLine("8.Prime Anagram number 2D array");
-                    Console.WriteLine("9.Hashing Function");
+                    Console.WriteLine("9.Prime Anagram numbers using Stack");
+                    Console.WriteLine("10.Prime Anagram numbers using Queue");
 
                     int ch = Convert.ToInt32(Console.ReadLine());
                     switch (ch)
@@ -74,7 +75,13 @@ namespace Data_Structure
                             break;
 
                         case 9:
-                            InputForHashing.StartHashing();
+                            PrimeAnagramNumberUsingStack ps = new PrimeAnagramNumberUsingStack();
+                            ps.PrintPrimeAnagram();
+                            break;
+
+                        case 10:
+                            PrimeAnagramNumberUsingQueue pq = new PrimeAnagramNumberUsingQueue();
+                            pq.PrintPrimeAnagram();
                             break;
 
                         default:

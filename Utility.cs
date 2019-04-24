@@ -28,6 +28,49 @@ namespace Data_Structure
         private NewNode<string> tempNode = null;
 
         /// <summary>
+        /// this method checks numbers are Anagram or not.
+        /// If anagram then adds first occurrance of the number into Anagram list
+        /// </summary>
+        /// <param name="number1">The number1.</param>
+        /// <param name="number2">The number2.</param>
+        /// <returns>true if anagram</returns>
+        public static bool Anagram(int number1, int number2)
+        {
+            ////Convert number to string
+            string stringNumber1 = number1.ToString();
+            string stringNumber2 = number2.ToString();
+
+            ////Convert string to char array
+            char[] number1CharArray = stringNumber1.ToCharArray();
+            char[] number2CharArray = stringNumber2.ToCharArray();
+
+            ////Sort char array
+            Array.Sort(number1CharArray);
+            Array.Sort(number2CharArray);
+            stringNumber1 = new string(number1CharArray);
+            stringNumber2 = new string(number2CharArray);
+            bool flag = false;
+            if (stringNumber1.Length == stringNumber2.Length)
+            {
+                //if count of two numbers are not equal then 
+                if (stringNumber1 == stringNumber2)
+                {
+                    flag = true;
+                }
+                else
+                {
+                    flag = false;
+                }
+            }
+            else
+            {
+                flag = false;
+            }
+
+            return flag;
+        }
+
+        /// <summary>
         /// Insert prime numbers into Prime Numbers Arrays 
         /// </summary>
         /// <returns>array of prime numbers</returns>
@@ -120,95 +163,92 @@ namespace Data_Structure
         /// Insert prime numbers into Prime Numbers Arrays 
         /// </summary>
         /// <returns>array of prime numbers</returns>
-        public static string[,] InsertInto2DPrimeArray(string[,] primeAnagramArray, List<int> anagramNumberList)
+        public static void InsertInto2DPrimeArray(List<int> anagramNumberList)
         {
-            string number;
+            string numberString;
             int first = 0, second = 0, third = 0, fourth = 0, fifth = 0, sixth = 0, seventh = 0, eighth = 0, nineth = 0, tenth = 0;
-           
-            //// traverse till 1000
+
             foreach (int i in anagramNumberList)
             {
                 if (i > 0 && i < 100)
                 {
-                    number = Convert.ToString(i);
-                    primeAnagramArray[0, first] = number;
+                    numberString = i.ToString();
+                    PrimeAnagram2DArray.primeAnagramArray[0, first] = numberString;
                     first++;
                 }
 
                 ////check prime numbers between 101 to 200
                 else if (i > 100 && i < 200)
                 {
-                    number = Convert.ToString(i);
-                    primeAnagramArray[0, second] = number;
+                    numberString = i.ToString();
+                    PrimeAnagram2DArray.primeAnagramArray[0, second] = numberString;
                     second++;
                 }
 
                 ////check prime numbers between 201 to 300
                 else if (i > 200 && i < 300)
                 {
-                    number = Convert.ToString(i);
-                    primeAnagramArray[0, third] = number;
+                    numberString = i.ToString();
+                    PrimeAnagram2DArray.primeAnagramArray[0, third] = numberString;
                     third++;
                 }
 
                 ////check prime numbers between 301 to 400
                 else if (i > 300 && i < 400)
                 {
-                    number = Convert.ToString(i);
-                    primeAnagramArray[0, fourth] = number;
+                    numberString = i.ToString();
+                    PrimeAnagram2DArray.primeAnagramArray[0, fourth] = numberString;
                     fourth++;
                 }
 
                 ////check prime numbers between 401 to 500
                 else if (i > 400 && i < 500)
                 {
-                    number = Convert.ToString(i);
-                    primeAnagramArray[0, fifth] = number;
+                    numberString = i.ToString();
+                    PrimeAnagram2DArray.primeAnagramArray[0, fifth] = numberString;
                     fifth++;
                 }
 
                 ////check prime numbers between 501 to 600
                 else if (i > 500 && i < 600)
                 {
-                    number = Convert.ToString(i);
-                    primeAnagramArray[0, sixth] = number;
+                    numberString = i.ToString();
+                    PrimeAnagram2DArray.primeAnagramArray[0, sixth] = numberString;
                     sixth++;
                 }
 
                 ////check prime numbers between 601 to 700
                 else if (i > 600 && i < 700)
                 {
-                    number = Convert.ToString(i);
-                    primeAnagramArray[0, seventh] = number;
+                    numberString = i.ToString();
+                    PrimeAnagram2DArray.primeAnagramArray[0, seventh] = numberString;
                     seventh++;
                 }
 
                 ////check prime numbers between 701 to 800
                 else if (i > 700 && i < 800)
                 {
-                    number = Convert.ToString(i);
-                    primeAnagramArray[0, eighth] = number;
+                    numberString = i.ToString();
+                    PrimeAnagram2DArray.primeAnagramArray[0, eighth] = numberString;
                     eighth++;
                 }
 
                 ////check prime numbers between 801 to 900
                 else if (i > 800 && i < 900)
                 {
-                    number = Convert.ToString(i);
-                    primeAnagramArray[0, nineth] = number;
+                    numberString = i.ToString();
+                    PrimeAnagram2DArray.primeAnagramArray[0, nineth] = numberString;
                     nineth++;
                 }
 
                 ////check prime numbers between 901 to 1000
                 else if (i > 900 && i < 1000)
                 {
-                    number = Convert.ToString(i);
-                    primeAnagramArray[0, tenth] = number;
+                    numberString = i.ToString();
+                    PrimeAnagram2DArray.primeAnagramArray[0, tenth] = numberString;
                     tenth++;
                 }
             }
-
-            return primeAnagramArray;
         }
 
         /// <summary>
@@ -372,6 +412,15 @@ namespace Data_Structure
         }
 
         /// <summary>
+        /// Gets the integer input file path.
+        /// </summary>
+        /// <returns>Path as a string </returns>
+        public static string GetIntegerInputPath()
+        {
+            return @"C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\InputInteger.txt";
+        }
+
+        /// <summary>
         /// Gets the output path.
         /// </summary>
         /// <returns>Path as a string</returns>
@@ -379,39 +428,7 @@ namespace Data_Structure
         {
             return @"C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\OutputFile.txt";
         }
-
-        /// <summary>
-        /// Sort the Linked List in Ascending order
-        /// </summary>
-        /// <param name="list">instance of Linked List</param>
-        /// <returns>Sorted Linked List</returns>
-        public LinkedList<string> SortLinkedList(LinkedList<string> list)
-        {
-            //// The current node is temporary node for traversing into Linked List
-            NewNode<string> currentNode = list.Head;
-
-            while (currentNode != null)
-            {
-                NewNode<string> currentNode1 = currentNode.Next;
-                while (currentNode1 != null)
-                {
-                    if (currentNode.NodeData.CompareTo(currentNode1.NodeData) > 0)
-                    {
-                        this.tempNode.NodeData = currentNode.NodeData;
-                        currentNode.NodeData = currentNode1.NodeData;
-                        currentNode1.NodeData = this.tempNode.NodeData;
-                    }
-                    //// traverse till end
-                    currentNode1 = currentNode1.Next;
-                }
-
-                //// traverse till end
-                currentNode = currentNode.Next;
-            }
-
-            return list;
-        }
-
+        
         /// <summary>
         /// Method to check Palindrome string.
         /// </summary>
