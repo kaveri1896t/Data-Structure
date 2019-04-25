@@ -35,6 +35,7 @@ namespace Data_Structure
                     Console.WriteLine("9.Prime Anagram numbers using Stack");
                     Console.WriteLine("10.Prime Anagram numbers using Queue");
                     Console.WriteLine("11.Number of Binary Search Trees");
+                    Console.WriteLine("12.Hashing Array");
 
                     int ch = Convert.ToInt32(Console.ReadLine());
                     switch (ch)
@@ -87,6 +88,11 @@ namespace Data_Structure
 
                         case 11:
                             InputBinary.BinaryTree();
+                            break;
+
+                        case 12:
+                            InputForHashing input = new InputForHashing();
+                            input.CallHashingFunction();
                             break;
 
                         default:

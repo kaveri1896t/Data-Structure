@@ -68,9 +68,9 @@ namespace Data_Structure
         /// <summary>
         /// Insert prime numbers into Prime Numbers Arrays 
         /// </summary>
-        /// <param name="PrimeNumberArray">2D array to store prime numbers.</param>
+        /// <param name="primeNumberArray">2D array to store prime numbers.</param>
         /// <returns>array of prime numbers</returns>
-        public static int[,] InsertIntoPrimeArray(int[,] PrimeNumberArray)
+        public static int[,] InsertIntoPrimeArray(int[,] primeNumberArray)
         {
             int first = 0, second = 0, third = 0, fourth = 0, fifth = 0, sixth = 0, seventh = 0, eighth = 0, nineth = 0, tenth = 0;
             try
@@ -83,60 +83,60 @@ namespace Data_Structure
                     {
                         if (i > 0 && i < 100)
                         {
-                            PrimeNumberArray[0, first] = i;
+                            primeNumberArray[0, first] = i;
                             first++;
                         }
                         else if (i > 100 && i < 200)
                         {
-                            PrimeNumberArray[1, second] = i;
+                            primeNumberArray[1, second] = i;
                             second++;
                         }
                         else if (i > 200 && i < 300)
                         {
                             ////check prime numbers between 201 to 300
-                            PrimeNumberArray[2, third] = i;
+                            primeNumberArray[2, third] = i;
                             third++;
                         }
                         else if (i > 300 && i < 400)
                         {
                             ////check prime numbers between 301 to 400
-                            PrimeNumberArray[3, fourth] = i;
+                            primeNumberArray[3, fourth] = i;
                             fourth++;
                         }
                         else if (i > 400 && i < 500)
                         {
                             ////check prime numbers between 401 to 500
-                            PrimeNumberArray[4, fifth] = i;
+                            primeNumberArray[4, fifth] = i;
                             fifth++;
                         }
                         else if (i > 500 && i < 600)
                         {
                             ////check prime numbers between 501 to 600
-                            PrimeNumberArray[5, sixth] = i;
+                            primeNumberArray[5, sixth] = i;
                             sixth++;
                         }
                         else if (i > 600 && i < 700)
                         {
                             ////check prime numbers between 601 to 700
-                            PrimeNumberArray[6, seventh] = i;
+                            primeNumberArray[6, seventh] = i;
                             seventh++;
                         }
                         else if (i > 700 && i < 800)
                         {
                             ////check prime numbers between 701 to 800
-                            PrimeNumberArray[7, eighth] = i;
+                            primeNumberArray[7, eighth] = i;
                             eighth++;
                         }
                         else if (i > 800 && i < 900)
                         {
                             ////check prime numbers between 801 to 900
-                            PrimeNumberArray[8, nineth] = i;
+                            primeNumberArray[8, nineth] = i;
                             nineth++;
                         }
                         else if (i > 900 && i < 1000)
                         {
                             ////check prime numbers between 901 to 1000
-                            PrimeNumberArray[9, tenth] = i;
+                            primeNumberArray[9, tenth] = i;
                             tenth++;
                         }
                     }
@@ -147,7 +147,7 @@ namespace Data_Structure
                 Console.WriteLine(e.Message);
             }
 
-            return PrimeNumberArray;
+            return primeNumberArray;
         }
 
         /// <summary>
