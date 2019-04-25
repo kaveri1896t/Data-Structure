@@ -19,17 +19,17 @@ namespace Data_Structure
         /// <summary>
         /// The data is to be inserted or removed from queue
         /// </summary>
-        public T data;
+        internal T data;
 
         /// <summary>
         /// The next is pointing to the front element
         /// </summary>
-        public Deque<T> next;
+        internal Deque<T> next;
 
         /// <summary>
         /// The pre pointing to the rear element
         /// </summary>
-        public Deque<T> pre;
+        internal Deque<T> pre;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Deque{T}"/> class 
@@ -48,9 +48,16 @@ namespace Data_Structure
         /// <param name="val">The value passed in Constructor.</param>
         public Deque(T val)
         {
-            this.data = val;
-            this.next = null;
-            this.pre = null;
+            try
+            {
+                this.data = val;
+                this.next = null;
+                this.pre = null;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

@@ -23,13 +23,8 @@ namespace Data_Structure
         private Queue<T> queue = new Queue<T>(2);
 
         /// <summary>
-        /// The temporary node of Linked List
-        /// </summary>
-        private NewNode<string> tempNode = null;
-
-        /// <summary>
         /// this method checks numbers are Anagram or not.
-        /// If anagram then adds first occurrance of the number into Anagram list
+        /// If anagram then adds first occurrence of the number into Anagram list
         /// </summary>
         /// <param name="number1">The number1.</param>
         /// <param name="number2">The number2.</param>
@@ -52,7 +47,7 @@ namespace Data_Structure
             bool flag = false;
             if (stringNumber1.Length == stringNumber2.Length)
             {
-                //if count of two numbers are not equal then 
+                ////if count of two numbers are not equal then 
                 if (stringNumber1 == stringNumber2)
                 {
                     flag = true;
@@ -73,182 +68,86 @@ namespace Data_Structure
         /// <summary>
         /// Insert prime numbers into Prime Numbers Arrays 
         /// </summary>
+        /// <param name="PrimeNumberArray">2D array to store prime numbers.</param>
         /// <returns>array of prime numbers</returns>
         public static int[,] InsertIntoPrimeArray(int[,] PrimeNumberArray)
         {
             int first = 0, second = 0, third = 0, fourth = 0, fifth = 0, sixth = 0, seventh = 0, eighth = 0, nineth = 0, tenth = 0;
-
-            //// traverse till 1000
-            for (int i = 2; i < 1000; i++)
+            try
             {
-                ////check prime numbers between 0 to 100
-                if (Utility<int>.Prime(i) == 0)
+                //// traverse till 1000
+                for (int i = 2; i < 1000; i++)
                 {
-                    if (i > 0 && i < 100)
+                    ////check prime numbers between 0 to 100
+                    if (Utility<int>.Prime(i) == 0)
                     {
-                        PrimeNumberArray[0, first] = i;
-                        first++;
-                    }
-
-                    ////check prime numbers between 101 to 200
-                    else if (i > 100 && i < 200)
-                    {
-                        PrimeNumberArray[1, second] = i;
-                        second++;
-                    }
-
-                    ////check prime numbers between 201 to 300
-                    else if (i > 200 && i < 300)
-                    {
-                        PrimeNumberArray[2, third] = i;
-                        third++;
-                    }
-
-                    ////check prime numbers between 301 to 400
-                    else if (i > 300 && i < 400)
-                    {
-                        PrimeNumberArray[3, fourth] = i;
-                        fourth++;
-                    }
-
-                    ////check prime numbers between 401 to 500
-                    else if (i > 400 && i < 500)
-                    {
-                        PrimeNumberArray[4, fifth] = i;
-                        fifth++;
-                    }
-
-                    ////check prime numbers between 501 to 600
-                    else if (i > 500 && i < 600)
-                    {
-                        PrimeNumberArray[5, sixth] = i;
-                        sixth++;
-                    }
-
-                    ////check prime numbers between 601 to 700
-                    else if (i > 600 && i < 700)
-                    {
-                        PrimeNumberArray[6, seventh] = i;
-                        seventh++;
-                    }
-
-                    ////check prime numbers between 701 to 800
-                    else if (i > 700 && i < 800)
-                    {
-                        PrimeNumberArray[7, eighth] = i;
-                        eighth++;
-                    }
-
-                    ////check prime numbers between 801 to 900
-                    else if (i > 800 && i < 900)
-                    {
-                        PrimeNumberArray[8, nineth] = i;
-                        nineth++;
-                    }
-
-                    ////check prime numbers between 901 to 1000
-                    else if (i > 900 && i < 1000)
-                    {
-                        PrimeNumberArray[9, tenth] = i;
-                        tenth++;
+                        if (i > 0 && i < 100)
+                        {
+                            PrimeNumberArray[0, first] = i;
+                            first++;
+                        }
+                        else if (i > 100 && i < 200)
+                        {
+                            PrimeNumberArray[1, second] = i;
+                            second++;
+                        }
+                        else if (i > 200 && i < 300)
+                        {
+                            ////check prime numbers between 201 to 300
+                            PrimeNumberArray[2, third] = i;
+                            third++;
+                        }
+                        else if (i > 300 && i < 400)
+                        {
+                            ////check prime numbers between 301 to 400
+                            PrimeNumberArray[3, fourth] = i;
+                            fourth++;
+                        }
+                        else if (i > 400 && i < 500)
+                        {
+                            ////check prime numbers between 401 to 500
+                            PrimeNumberArray[4, fifth] = i;
+                            fifth++;
+                        }
+                        else if (i > 500 && i < 600)
+                        {
+                            ////check prime numbers between 501 to 600
+                            PrimeNumberArray[5, sixth] = i;
+                            sixth++;
+                        }
+                        else if (i > 600 && i < 700)
+                        {
+                            ////check prime numbers between 601 to 700
+                            PrimeNumberArray[6, seventh] = i;
+                            seventh++;
+                        }
+                        else if (i > 700 && i < 800)
+                        {
+                            ////check prime numbers between 701 to 800
+                            PrimeNumberArray[7, eighth] = i;
+                            eighth++;
+                        }
+                        else if (i > 800 && i < 900)
+                        {
+                            ////check prime numbers between 801 to 900
+                            PrimeNumberArray[8, nineth] = i;
+                            nineth++;
+                        }
+                        else if (i > 900 && i < 1000)
+                        {
+                            ////check prime numbers between 901 to 1000
+                            PrimeNumberArray[9, tenth] = i;
+                            tenth++;
+                        }
                     }
                 }
-
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
 
             return PrimeNumberArray;
-        }
-
-        /// <summary>
-        /// Insert prime numbers into Prime Numbers Arrays 
-        /// </summary>
-        /// <returns>array of prime numbers</returns>
-        public static void InsertInto2DPrimeArray(List<int> anagramNumberList)
-        {
-            string numberString;
-            int first = 0, second = 0, third = 0, fourth = 0, fifth = 0, sixth = 0, seventh = 0, eighth = 0, nineth = 0, tenth = 0;
-
-            foreach (int i in anagramNumberList)
-            {
-                if (i > 0 && i < 100)
-                {
-                    numberString = i.ToString();
-                    PrimeAnagram2DArray.primeAnagramArray[0, first] = numberString;
-                    first++;
-                }
-
-                ////check prime numbers between 101 to 200
-                else if (i > 100 && i < 200)
-                {
-                    numberString = i.ToString();
-                    PrimeAnagram2DArray.primeAnagramArray[0, second] = numberString;
-                    second++;
-                }
-
-                ////check prime numbers between 201 to 300
-                else if (i > 200 && i < 300)
-                {
-                    numberString = i.ToString();
-                    PrimeAnagram2DArray.primeAnagramArray[0, third] = numberString;
-                    third++;
-                }
-
-                ////check prime numbers between 301 to 400
-                else if (i > 300 && i < 400)
-                {
-                    numberString = i.ToString();
-                    PrimeAnagram2DArray.primeAnagramArray[0, fourth] = numberString;
-                    fourth++;
-                }
-
-                ////check prime numbers between 401 to 500
-                else if (i > 400 && i < 500)
-                {
-                    numberString = i.ToString();
-                    PrimeAnagram2DArray.primeAnagramArray[0, fifth] = numberString;
-                    fifth++;
-                }
-
-                ////check prime numbers between 501 to 600
-                else if (i > 500 && i < 600)
-                {
-                    numberString = i.ToString();
-                    PrimeAnagram2DArray.primeAnagramArray[0, sixth] = numberString;
-                    sixth++;
-                }
-
-                ////check prime numbers between 601 to 700
-                else if (i > 600 && i < 700)
-                {
-                    numberString = i.ToString();
-                    PrimeAnagram2DArray.primeAnagramArray[0, seventh] = numberString;
-                    seventh++;
-                }
-
-                ////check prime numbers between 701 to 800
-                else if (i > 700 && i < 800)
-                {
-                    numberString = i.ToString();
-                    PrimeAnagram2DArray.primeAnagramArray[0, eighth] = numberString;
-                    eighth++;
-                }
-
-                ////check prime numbers between 801 to 900
-                else if (i > 800 && i < 900)
-                {
-                    numberString = i.ToString();
-                    PrimeAnagram2DArray.primeAnagramArray[0, nineth] = numberString;
-                    nineth++;
-                }
-
-                ////check prime numbers between 901 to 1000
-                else if (i > 900 && i < 1000)
-                {
-                    numberString = i.ToString();
-                    PrimeAnagram2DArray.primeAnagramArray[0, tenth] = numberString;
-                    tenth++;
-                }
-            }
         }
 
         /// <summary>
@@ -283,13 +182,181 @@ namespace Data_Structure
         /// <returns>Day of week on specified date</returns>
         public static int GetDay(int month, int day, int year)
         {
-            int y = year - ((14 - month) / 12);
+            int y = year - (14 - month) / 12;
             int x = y + (y / 4) - (y / 100) + (y / 400);
-            int m = month + (12 * ((14 - month) / 12)) - 2;
-            int d = day + x + (((31 * m) / 12) % 7);
+            int m = month + 12 * ((14 - month) / 12) - 2;
+            int d = (day + x + (31 * m) / 12) % 7;
             return d;
         }
 
+        /// <summary>
+        /// Gets the integer input file path.
+        /// </summary>
+        /// <returns>Path as a string </returns>
+        public static string GetIntegerInputPath()
+        {
+            return @"C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\InputInteger.txt";
+        }
+        
+        /// <summary>
+        /// check the number is Prime or not.
+        /// </summary>
+        /// <param name="number">The number to be get checked for prime.</param>
+        /// <returns>return prime number</returns>
+        public static int Prime(int number)
+        {
+            int flag = 0;
+            try
+            {
+                ////start from  2 because 1 is neither prime nor non-prime
+                for (int i = 2; i <= number / 2; i++)
+                {
+                    ////divide that number by each number upto that number
+                    if (number % i == 0)
+                    {
+                        ////if not prime
+                        flag = 1;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return flag;
+        }
+
+        /// <summary>
+        /// Checks the string is empty or Null.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns>returns false if string is null or empty</returns>
+        public static bool CheckString(string name)
+        {
+            try
+            {
+                name = name.Trim();
+                if (string.IsNullOrEmpty(name))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// returns true if string contain any special Character
+        /// </summary>
+        /// <param name="userName">Takes the username </param>
+        /// <returns>returns  if string contains any Character </returns>
+        public static bool ContainsCharacter(string userName)
+        {
+            try
+            {
+                char[] userNameCharacter = userName.ToCharArray();
+                //// check each character in given string wheather it is a Character.
+                for (int i = 0; i < userNameCharacter.Length; i++)
+                {
+                    if (!char.IsLetterOrDigit(userNameCharacter[i]))
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Determines whether the specified input is number.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified input is number; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool IsNumber(string input)
+        {
+            try
+            {
+                for (int i = 0; i < input.Length; i++)
+                {
+                    if (char.IsDigit(input[i]) == false)
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Method to check Palindrome string.
+        /// </summary>
+        public void PalindromeCheck()
+        {
+            try
+            {
+                //// Create instance of DequeOperation to access members of that class
+                DequeOperation<char> operation = new DequeOperation<char>();
+
+                ////Take string to check Palindrome string
+                Console.WriteLine("\nEnter the string : ");
+                string inputString = Console.ReadLine();
+
+                ////Convert it to char array
+                char[] arrayOfChar = inputString.ToCharArray();
+
+                ////adding each character to the rear of the deque
+                foreach (char i in arrayOfChar)
+                {
+                    operation.AddRear(i);
+                }
+
+                int flag = 0;
+                while (operation.GetSize() > 1)
+                {
+                    ////Compare two characters removed from front and rear 
+                    if (operation.RemoveFront() != operation.RemoveRear())
+                    {
+                        flag = 1;
+                        break;
+                    }
+                }
+
+                ////If true then print string palindrome else not palindrome
+                if (flag == 0)
+                {
+                    Console.WriteLine("String is palindrome");
+                }
+                else
+                {
+                    Console.WriteLine("String is not palindrome");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+        
         /// <summary>
         /// Prints the array.
         /// </summary>
@@ -310,15 +377,22 @@ namespace Data_Structure
         /// <returns>updated queue</returns>
         public Queue<T> InsertElementIntoQueue(T value)
         {
-            ////check for queue overflow condition
-            if (this.queue.Rear == this.queue.Maximum - 1)
+            try
             {
-                Console.WriteLine("Queue Overflow...");
+                ////check for queue overflow condition
+                if (this.queue.Rear == this.queue.Maximum - 1)
+                {
+                    Console.WriteLine("Queue Overflow...");
+                }
+                else
+                {
+                    ////add element to queue
+                    this.queue.DataElement[++this.queue.Rear] = value;
+                }
             }
-            else
+            catch (Exception e)
             {
-                ////add element to queue
-                this.queue.DataElement[++this.queue.Rear] = value;
+                Console.WriteLine(e.Message);
             }
 
             return this.queue;
@@ -327,16 +401,24 @@ namespace Data_Structure
         /// <summary>
         /// Deletes the element at Front position.
         /// </summary>
+        /// <returns>returns queue object</returns>
         public Queue<T> RemoveElementFromQueue()
         {
-            ////Check the queue empty condition
-            if (this.queue.Front == this.queue.Rear + 1)
+            try
             {
-                Console.WriteLine("Queue is Empty");
+                ////Check the queue empty condition
+                if (this.queue.Front == this.queue.Rear + 1)
+                {
+                    Console.WriteLine("Queue is Empty");
+                }
+                else
+                {
+                    this.queue.Front += 1;
+                }
             }
-            else
+            catch (Exception e)
             {
-                this.queue.Front += 1;
+                Console.WriteLine(e.Message);
             }
 
             return this.queue;
@@ -347,36 +429,53 @@ namespace Data_Structure
         /// </summary>
         public void PrintQueue()
         {
-            ////Queue empty condition
-            if (this.queue.Front == this.queue.Rear + 1)
+            try
             {
-                Console.WriteLine("Queue is Empty");
-                return;
-            }
-            else
-            {
-                foreach (T i in this.queue.DataElement)
+                ////Queue empty condition
+                if (this.queue.Front == this.queue.Rear + 1)
                 {
-                    Console.WriteLine("Item[" + (this.queue.Front + 1) + "]: " + i);
+                    Console.WriteLine("Queue is Empty");
+                    return;
                 }
+                else
+                {
+                    foreach (T i in this.queue.DataElement)
+                    {
+                        Console.WriteLine("Item[" + (this.queue.Front + 1) + "]: " + i);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
 
         /// <summary>
-        /// Deposite money into the bank.
+        /// Deposit money into the bank.
         /// </summary>
         /// <param name="bank">The bank is an instance to access the members of BankCashCounter class.</param>
         /// <returns>Updated Initial cash</returns>
         public int DepositeMoney(BankCashCounter bank)
         {
-            do
+            try
             {
-                Console.WriteLine("\nEnter the Amount to be deposited into the Bank /nNote : Must be greater than zero : ");
-                bank.Amount = Convert.ToInt32(Console.ReadLine());
+                do
+                {
+                    Console.WriteLine("\nEnter the Amount to be deposited into the Bank /nNote : Must be greater than zero : ");
+                    bank.Amount = Convert.ToInt32(Console.ReadLine());
+                }
+                while (bank.Amount < 0);
+
+                ////Increment bank cash by amount deposited
+                BankCashCounter.InitialCash += bank.Amount;
+                Console.WriteLine("\nAmount deposited successfully...");
             }
-            while (bank.Amount < 0);
-            BankCashCounter.InitialCash += bank.Amount;
-            Console.WriteLine("\nAmount deposited successfully...");
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
             return BankCashCounter.InitialCash;
         }
 
@@ -384,19 +483,31 @@ namespace Data_Structure
         /// Withdraw the money from the bank.
         /// </summary>
         /// <param name="bank">The bank is an instance to access the members of BankCashCounter class.</param>
+        /// <returns>updated cash</returns>
         public int WithdrawMoney(BankCashCounter bank)
         {
-            Console.WriteLine("Available cash : {0} ", BankCashCounter.InitialCash);
-            Console.WriteLine("\nEnter the Amount to be withdrawn from the Bank : ");
-            bank.Amount = Convert.ToInt32(Console.ReadLine());
-            if (bank.Amount < BankCashCounter.InitialCash)
+            try
             {
-                BankCashCounter.InitialCash -= bank.Amount;
-                Console.WriteLine("\nAmount withdrawn successfully...");
+                ////print cash available in bank
+                Console.WriteLine("Available cash : {0} ", BankCashCounter.InitialCash);
+                Console.WriteLine("\nEnter the Amount to be withdrawn from the Bank : ");
+                bank.Amount = Convert.ToInt32(Console.ReadLine());
+
+                ////check if amount entered is available in bank
+                if (bank.Amount < BankCashCounter.InitialCash)
+                {
+                    ////Decrement bank cash by amount withdrawn
+                    BankCashCounter.InitialCash -= bank.Amount;
+                    Console.WriteLine("\nAmount withdrawn successfully...");
+                }
+                else
+                {
+                    Console.WriteLine("\nCannot withdraw due to insufficient cash...");
+                }
             }
-            else
+            catch (Exception e)
             {
-                Console.WriteLine("\nCannot withdraw due to insufficient cash...");
+                Console.WriteLine(e.Message);
             }
 
             return BankCashCounter.InitialCash;
@@ -412,87 +523,12 @@ namespace Data_Structure
         }
 
         /// <summary>
-        /// Gets the integer input file path.
-        /// </summary>
-        /// <returns>Path as a string </returns>
-        public static string GetIntegerInputPath()
-        {
-            return @"C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\InputInteger.txt";
-        }
-
-        /// <summary>
         /// Gets the output path.
         /// </summary>
         /// <returns>Path as a string</returns>
         public string GetOutputPath()
         {
             return @"C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\OutputFile.txt";
-        }
-        
-        /// <summary>
-        /// Method to check Palindrome string.
-        /// </summary>
-        public void PalindromeCheck()
-        {
-            //// Create instance of DequeOperation to access members of that class
-            DequeOperation<Char> operation = new DequeOperation<Char>();
-
-            ////Take string to check Palindrome string
-            Console.WriteLine("\nEnter the string : ");
-            string inputString = Console.ReadLine();
-
-            ////Convert it to char array
-            char[] ArrayOfChar = inputString.ToCharArray();
-
-            ////adding each character to the rear of the deque
-            foreach (char i in ArrayOfChar)
-            {
-                operation.AddRear(i);
-            }
-
-            int flag = 0;
-            while (operation.GetSize() > 1)
-            {
-                ////Compare two characters removed from front and rear 
-                if (operation.RemoveFront() != operation.RemoveRear())
-                {
-                    flag = 1;
-                    break;
-                }
-            }
-
-            ////If true then print string palindrome else not palindrome
-            if (flag == 0)
-            {
-                Console.WriteLine("String is palindrome");
-            }
-            else
-            {
-                Console.WriteLine("String is not palindrome");
-            }
-        }
-
-        /// <summary>
-        /// check the number is Prime or not.
-        /// </summary>
-        /// <param name="number">The number to be get checked for prime.</param>
-        /// <returns>return prime number</returns>
-        public static int Prime(int number)
-        {
-            int flag = 0;
-
-            ////start from  2 because 1 is neither prime nor non-prime
-            for (int i = 2; i <= number / 2; i++)
-            {
-                ////divide that number by each number upto that number
-                if (number % i == 0)
-                {
-                    ////if not prime
-                    flag = 1;
-                }
-            }
-
-            return flag;
         }
     }
 }

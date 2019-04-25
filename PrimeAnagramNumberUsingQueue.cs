@@ -10,28 +10,31 @@ namespace Data_Structure
     using System.Collections.Generic;
     using System.Text;
 
+    /// <summary>
+    /// Prime anagram numbers using queue
+    /// </summary>
     public class PrimeAnagramNumberUsingQueue
     {
         /// <summary>
-        /// The stack list is an instance of the stack implemented using linked list
+        /// The anagram number list is to store anagram numbers
         /// </summary>
-        internal QueueUsingLinkedList queueList = new QueueUsingLinkedList();
-
-        /// <summary>
-        /// The linked list object is an instance of the Linked List
-        /// </summary>
-        internal LinkedList<int> linkedListObject = new LinkedList<int>();
+        internal static List<int> AnagramNumberList = new List<int>();
 
         /// <summary>
         /// The prime list is a list to store prime numbers
         /// </summary>
-        internal static List<int> primeList = new List<int>();
+        internal static List<int> PrimeList = new List<int>();
 
         /// <summary>
-        /// The anagram number list is to store anagram numbers
+        /// The stack list is an instance of the stack implemented using linked list
         /// </summary>
-        internal static List<int> anagramNumberList = new List<int>();
+        internal QueueUsingLinkedList QueueList = new QueueUsingLinkedList();
 
+        /// <summary>
+        /// The linked list object is an instance of the Linked List
+        /// </summary>
+        internal LinkedList<int> LinkedListObject = new LinkedList<int>();
+        
         /// <summary>
         /// Prints the prime anagram numbers.
         /// This is the method where execution starts
@@ -46,32 +49,37 @@ namespace Data_Structure
                     ////Check if prime or not
                     if (Utility<int>.Prime(i) == 0)
                     {
-                        primeList.Add(i);
+                        PrimeList.Add(i);
                     }
                 }
 
                 ////Add anagram numbers to list
-                for (int i = 0; i < primeList.Count; i++)
+                for (int i = 0; i < PrimeList.Count; i++)
                 {
-                    for (int j = i + 1; j < primeList.Count; j++)
+                    for (int j = i + 1; j < PrimeList.Count; j++)
                     {
-                        if (Utility<int>.Anagram(primeList[i], primeList[j]))
+                        ////Check if two numbers are anagram or not
+                        if (Utility<int>.Anagram(PrimeList[i], PrimeList[j]))
                         {
-                            anagramNumberList.Add(primeList[i]);
+                            ////if anagram then add into anagram list
+                            AnagramNumberList.Add(PrimeList[i]);
                         }
                     }
                 }
 
                 ////Push anagram numbers into the stack
-                foreach (int number in anagramNumberList)
+                foreach (int number in AnagramNumberList)
                 {
-                    linkedListObject = queueList.EnQueue(anagramNumberList, number);
+                    ////Insert into queue
+                    this.LinkedListObject = this.QueueList.EnQueue(AnagramNumberList, number);
                 }
 
-                linkedListObject = queueList.DeQueue(linkedListObject, anagramNumberList);
+                ////Remove from the queue
+                this.LinkedListObject = this.QueueList.DeQueue(this.LinkedListObject, AnagramNumberList);
 
+                ////Print the prime anagram numbers
                 Console.WriteLine("\nPrime Anagram numbers Dequeued from queue are :  ");
-                linkedListObject = linkedListObject.PrintLinkedList(linkedListObject);
+                this.LinkedListObject = this.LinkedListObject.PrintLinkedList(this.LinkedListObject);
             }
             catch (Exception e)
             {

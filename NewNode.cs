@@ -19,11 +19,11 @@ namespace Data_Structure
         /// <summary>
         /// The node data is data element of class 
         /// </summary>
-        public T NodeData;
+        internal T NodeData;
 
         /// <summary>
         /// The Next is the pointer to the Next node
         /// </summary>
-        public NewNode<T> Next;
+        internal NewNode<T> Next;
     }
 }

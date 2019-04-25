@@ -19,22 +19,22 @@ namespace Data_Structure
         /// <summary>
         /// The front is the Front index
         /// </summary>
-        public Deque<T> Front;
+        internal Deque<T> Front;
 
         /// <summary>
         /// The rear points to last index
         /// </summary>
-        public Deque<T> Rear;
+        internal Deque<T> Rear;
 
         /// <summary>
         /// The size is the size of the queue
         /// </summary>
-        public int Size = 0;
+        internal int Size = 0;
 
         /// <summary>
         /// The value is the data to be stored into the queue
         /// </summary>
-        public T Val;
+        internal T Val;
 
         /// <summary>
         /// Add the element at front.
@@ -42,29 +42,36 @@ namespace Data_Structure
         /// <param name="element">The element to be inserted.</param>
         public void AddFront(T element)
         {
-            //// check if empty queue
-            if (this.Front == null)
+            try
             {
-                //// add element to front
-                this.Front.data = element;
-                this.Rear = this.Front;
+                //// check if empty queue
+                if (this.Front == null)
+                {
+                    //// add element to front
+                    this.Front.data = element;
+                    this.Rear = this.Front;
+                }
+                else
+                {
+                    ////take temporary node 
+                    Deque<T> tempNode = null;
+
+                    ////assign data to be stored into the first node
+                    tempNode.data = element;
+
+                    ////Link that node to the front
+                    tempNode.next = this.Front;
+
+                    ////back link that node with front node
+                    this.Front.pre = tempNode;
+
+                    ////Newnode becames front node
+                    this.Front = tempNode;
+                }
             }
-            else
+            catch (Exception e)
             {
-                ////take temporary node 
-                Deque<T> tempNode = null;
-
-                ////assign data to be stored into the first node
-                tempNode.data = element;
-
-                ////Link that node to the front
-                tempNode.next = this.Front;
-
-                ////back link that node with front node
-                this.Front.pre = tempNode;
-
-                ////Newnode becames front node
-                this.Front = tempNode;
+                Console.WriteLine(e.Message);
             }
 
             this.Size++;
@@ -76,27 +83,34 @@ namespace Data_Structure
         /// <param name="element">The element to be added into queue.</param>
         public void AddRear(T element)
         {
-            /////if no element in list
-            if (this.Front == null) 
+            try
             {
-                ////add at front
-                Deque<T> tempNode = new Deque<T>(element);
-                this.Front = tempNode;
+                /////if no element in list
+                if (this.Front == null)
+                {
+                    ////add at front
+                    Deque<T> tempNode = new Deque<T>(element);
+                    this.Front = tempNode;
 
-                ////make front node as rear node
-                this.Rear = this.Front;
+                    ////make front node as rear node
+                    this.Rear = this.Front;
+                }
+                else
+                {
+                    ////if element is there in list then add at rear
+                    Deque<T> tempNode = new Deque<T>(element);
+
+                    ////Add new node at rear
+                    this.Rear.next = tempNode;
+                    tempNode.pre = this.Rear;
+
+                    ////new node becomes rear node
+                    this.Rear = tempNode;
+                }
             }
-            else  
+            catch (Exception e)
             {
-                ////if element is there in list then add at rear
-                Deque<T> tempNode = new Deque<T>(element);
-
-                ////Add new node at rear
-                this.Rear.next = tempNode;
-                tempNode.pre = this.Rear;
-
-                ////new node becomes rear node
-                this.Rear = tempNode;
+                Console.WriteLine(e.Message);
             }
 
             this.Size++;

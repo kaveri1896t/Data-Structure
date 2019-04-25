@@ -15,7 +15,10 @@ namespace Data_Structure
     /// </summary>
     public class SortedLinkedList
     {
-        public NewNode<int> Head;
+        /// <summary>
+        /// The head is an instance of the node class which points to the first node into the linked list
+        /// </summary>
+        internal NewNode<int> Head;
 
         /// <summary>
         /// Adds the node into sorted linked list.
@@ -42,11 +45,13 @@ namespace Data_Structure
             ////Traverse till end
             while (currentNode != null)
             {
-                if(list.Head.NodeData > data)
+                if (list.Head.NodeData > data)
                 {
                     newNode.Next = list.Head;
                     list.Head = newNode;
                 }
+
+                ////Compare the position of the new node to be added into the list
                 if (currentNode.NodeData < data && currentNode.Next.NodeData > data)
                 {
                     newNode.Next = currentNode.Next;
@@ -59,6 +64,11 @@ namespace Data_Structure
             return list;
         }
 
+        /// <summary>
+        /// Sorts the linked list.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <returns>sorted linked list</returns>
         public SortedLinkedList SortLinkedList(SortedLinkedList list)
         {
             NewNode<int> currentNode = list.Head;
@@ -78,9 +88,10 @@ namespace Data_Structure
                         Console.WriteLine("\nEmpty List...");
                     }
 
+                    ////if first is greater then swap 
                     if (currentNode.NodeData > currentNode1.NodeData)
                     {
-
+                        ////Swap the elements 
                         tempNode.NodeData = currentNode.NodeData;
                         currentNode.NodeData = currentNode1.NodeData;
                         currentNode1.NodeData = tempNode.NodeData;
@@ -245,7 +256,7 @@ namespace Data_Structure
         /// Prints the linked list.
         /// </summary>
         /// <param name="list">The list is an instance of linked list.</param>
-        /// <returns></returns>
+        /// <returns>sorted list</returns>
         public SortedLinkedList PrintLinkedList(SortedLinkedList list)
         {
             //// The current node is temporary node for traversing into Linked List
@@ -262,6 +273,7 @@ namespace Data_Structure
                 // Traverse till the end of the list....
                 while (currentNode != null)
                 {
+                    ////print the data of each node
                     Console.WriteLine(" -> " + currentNode.NodeData);
                     currentNode = currentNode.Next;
                 }
@@ -269,34 +281,5 @@ namespace Data_Structure
 
             return list;
         }
-
-       /* public bool WriteToFile(string filePath)
-        {
-            try
-            {
-                if (this.Head == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    NewNode<int> temp = this.Head;
-                    using (var writer = new System.IO.StreamWriter(filePath, true))
-                    {
-                        while (temp != null)
-                        {
-                            writer.Write(temp.NodeData.ToString().Trim() + "\n");
-                            temp = temp.Next;
-                        }
-                    }
-                }
-
-                return true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }*/
     }
 }

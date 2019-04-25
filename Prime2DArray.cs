@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DequeOperation.cs" company="Bridgelabz">
+// <copyright file="Prime2DArray.cs" company="Bridgelabz">
 //   Copyright © 2019 Company="BridgeLabz"
 // </copyright>
 // <creator name="Kaveri Tekawade"/>
@@ -20,7 +20,7 @@ namespace Data_Structure
         /// the first index gives the number of blocks like 0-100, 101-200 and so on.
         /// the second index gives the number of prime numbers present in each range
         /// </summary>
-        public static int[,] PrimeNumberArray = new int[10, 25];
+        internal static int[,] PrimeNumberArray = new int[10, 25];
 
         /// <summary>
         /// Prime numbers checker

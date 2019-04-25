@@ -15,11 +15,22 @@ namespace Data_Structure
     /// </summary>
     public class PalindromeChecker
     {
+        /// <summary>
+        /// Palindrome checker.
+        /// </summary>
         public void PalindromeCheckMethod()
         {
-            Utility<char> utilityObject= new Utility<char>();
-            utilityObject.PalindromeCheck();
+            try
+            {
+                Utility<char> utilityObject = new Utility<char>();
+
+                ////Call to the Palindrome checker
+                utilityObject.PalindromeCheck();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
-

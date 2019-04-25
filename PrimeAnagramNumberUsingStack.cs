@@ -16,25 +16,25 @@ namespace Data_Structure
     public class PrimeAnagramNumberUsingStack
     {
         /// <summary>
-        /// The stack list is an instance of the stack implemented using linked list
-        /// </summary>
-        internal StackUsingLinkedList stackList = new StackUsingLinkedList();
-
-        /// <summary>
-        /// The linked list object is an instance of the Linked List
-        /// </summary>
-        internal LinkedList<int> linkedListObject = new LinkedList<int>();
-
-        /// <summary>
         /// The prime list is a list to store prime numbers
         /// </summary>
-        internal static List<int> primeList = new List<int>();
+        internal static List<int> PrimeList = new List<int>();
 
         /// <summary>
         /// The anagram number list is to store anagram numbers
         /// </summary>
-        internal static List<int> anagramNumberList = new List<int>();
+        internal static List<int> AnagramNumberList = new List<int>();
 
+        /// <summary>
+        /// The stack list is an instance of the stack implemented using linked list
+        /// </summary>
+        internal StackUsingLinkedList StackList = new StackUsingLinkedList();
+
+        /// <summary>
+        /// The linked list object is an instance of the Linked List
+        /// </summary>
+        internal LinkedList<int> LinkedListObject = new LinkedList<int>();
+        
         /// <summary>
         /// Prints the prime anagram numbers.
         /// This is the method where execution starts
@@ -49,34 +49,35 @@ namespace Data_Structure
                     ////Check if prime or not
                     if (Utility<int>.Prime(i) == 0)
                     {
-                        primeList.Add(i);
+                        PrimeList.Add(i);
                     }
                 }
 
                 ////Add anagram numbers to list
-                for (int i = 0; i < primeList.Count; i++)
+                for (int i = 0; i < PrimeList.Count; i++)
                 {
-                    for (int j = i + 1; j < primeList.Count; j++)
+                    for (int j = i + 1; j < PrimeList.Count; j++)
                     {
-                        if (Utility<int>.Anagram(primeList[i], primeList[j]))
+                        ////if anagram then add to list
+                        if (Utility<int>.Anagram(PrimeList[i], PrimeList[j]))
                         {
-                            anagramNumberList.Add(primeList[i]);
+                            AnagramNumberList.Add(PrimeList[i]);
                         }
                     }
                 }
 
                 ////Push anagram numbers into the stack
-                foreach (int number in anagramNumberList)
+                foreach (int number in AnagramNumberList)
                 {
-                    linkedListObject = stackList.PushIntoStack(anagramNumberList, number);
+                    this.LinkedListObject = this.StackList.PushIntoStack(AnagramNumberList, number);
                 }
-                
+
                 ////Pop anagram numbers from stack
-                linkedListObject = stackList.PopFromStack(linkedListObject,anagramNumberList);
+                this.LinkedListObject = this.StackList.PopFromStack(this.LinkedListObject, AnagramNumberList);
 
                 ////print the stack elements after pop operation
                 Console.WriteLine("\nPrime Anagram numbers popped from the stack are :  ");
-                linkedListObject = linkedListObject.PrintLinkedList(linkedListObject);
+                this.LinkedListObject = this.LinkedListObject.PrintLinkedList(this.LinkedListObject);
             }
             catch (Exception e)
             {

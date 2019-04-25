@@ -34,6 +34,7 @@ namespace Data_Structure
                     Console.WriteLine("8.Prime Anagram number 2D array");
                     Console.WriteLine("9.Prime Anagram numbers using Stack");
                     Console.WriteLine("10.Prime Anagram numbers using Queue");
+                    Console.WriteLine("11.Number of Binary Search Trees");
 
                     int ch = Convert.ToInt32(Console.ReadLine());
                     switch (ch)
@@ -84,6 +85,10 @@ namespace Data_Structure
                             pq.PrintPrimeAnagram();
                             break;
 
+                        case 11:
+                            InputBinary.BinaryTree();
+                            break;
+
                         default:
                             Console.WriteLine("Invalid Choice...");
                             break;
@@ -100,7 +105,6 @@ namespace Data_Structure
             }
 
             Console.WriteLine("Thank you...");
-            Console.ReadKey();
         }
     }
 }

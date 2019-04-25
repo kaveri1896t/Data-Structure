@@ -32,7 +32,7 @@ namespace Data_Structure
                 Stack<char> stack = new Stack<char>(charArray.Length);
                 foreach (char i in charArray)
                 {
-                     ////If left parenthesis then push into stack.
+                    ////If left parenthesis then push into stack.
                     if (i == '(')
                     {
                         stack.Push(i);
@@ -52,6 +52,7 @@ namespace Data_Structure
 
                 if (stack.IsEmpty())
                 {
+                    ////if stack is empty then Parenthesis are balanced.
                     Console.WriteLine("\nBalanced Parenthesis");
                 }
                 else

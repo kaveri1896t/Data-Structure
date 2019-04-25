@@ -19,22 +19,22 @@ namespace Data_Structure
         /// <summary>
         /// The data element is used to store value in Queue
         /// </summary>
-        public T[] DataElement;
+        internal T[] DataElement;
 
         /// <summary>
         /// The front points to first element in Queue
         /// </summary>
-        public int Front;
+        internal int Front;
 
         /// <summary>
         /// The rear points to last element in Queue
         /// </summary>
-        public int Rear;
+        internal int Rear;
 
         /// <summary>
         /// The Maximum is the capacity of the Queue
         /// </summary>
-        public int Maximum;
+        internal int Maximum;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Queue{T}"/> class.

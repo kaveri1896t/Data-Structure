@@ -18,52 +18,60 @@ namespace Data_Structure
         /// <summary>
         /// The prime anagram array to store prime anagram numbers
         /// </summary>
-        internal static string[,] primeAnagramArray = new string[13, 13];
+        internal static string[,] PrimeAnagramArray = new string[13, 13];
 
         /// <summary>
         /// The prime list is a list to store prime numbers
         /// </summary>
-        internal static List<int> primeList = new List<int>();
+        internal static List<int> PrimeList = new List<int>();
 
         /// <summary>
         /// The anagram number list is to store anagram numbers
         /// </summary>
-        internal static List<int> anagramNumberList = new List<int>();
+        internal static List<int> AnagramNumberList = new List<int>();
 
         /// <summary>
         /// this method will check number is prime or not if yes then check for Anagram.
         /// </summary>
         public static void PrimeAnagramNumbers()
         {
-            ////Add prime numbers to list
-            for (int i = 2; i < 1000; i++)
+            try
             {
-                if (Utility<int>.Prime(i) == 0)
+                ////Add prime numbers to list
+                for (int i = 2; i < 1000; i++)
                 {
-                    primeList.Add(i);
-                }
-            }
-            
-            ////Add anagram numbers to list
-            for (int i = 0; i < primeList.Count; i++)
-            {
-                for (int j = i + 1; j < primeList.Count; j++)
-                {
-                    if (Utility<int>.Anagram(primeList[i], primeList[j]))
+                    if (Utility<int>.Prime(i) == 0)
                     {
-                        anagramNumberList.Add(primeList[i]);
+                        PrimeList.Add(i);
                     }
                 }
+
+                ////Add anagram numbers to list
+                for (int i = 0; i < PrimeList.Count; i++)
+                {
+                    for (int j = i + 1; j < PrimeList.Count; j++)
+                    {
+                        if (Utility<int>.Anagram(PrimeList[i], PrimeList[j]))
+                        {
+                            AnagramNumberList.Add(PrimeList[i]);
+                        }
+                    }
+                }
+
+                AnagramNumberList.Sort();
+
+                ////calling to store Element function
+                PrimeAnagram2DArray.StoreElement();
             }
-
-            anagramNumberList.Sort();
-
-            ////calling to store Element function
-            PrimeAnagram2DArray.StoreElement();
-
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
-        //this method is used for store elements in primeAnagramArray.
+        /// <summary>
+        /// this method is used to store elements in PrimeAnagramArray.
+        /// </summary>
         public static void StoreElement()
         {
             ////Store prime anagram numbers into the 2D array
@@ -74,14 +82,14 @@ namespace Data_Structure
                 {
                     for (int j = 0; j < 13; j++)
                     {
-                        primeAnagramArray[i, j] = anagramNumberList[index].ToString();
+                        PrimeAnagramArray[i, j] = AnagramNumberList[index].ToString();
                         index++;
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("");
+                Console.WriteLine(string.Empty);
             }
 
             ////Print the 2D array having Prime Anagram Number
@@ -91,7 +99,7 @@ namespace Data_Structure
                 {
                     for (int j = 0; j < 13; j++)
                     {
-                        Console.Write(primeAnagramArray[i, j] + " ");
+                        Console.Write(PrimeAnagramArray[i, j] + " ");
                     }
 
                     Console.WriteLine();
@@ -99,17 +107,24 @@ namespace Data_Structure
             }
             catch (Exception ex)
             {
-                Console.WriteLine("");
+                Console.WriteLine(string.Empty);
             }
         }
-        
+
         /// <summary>
         /// call to the Prime anagram function.
         /// </summary>
         public static void PrimeAnagramFunction()
         {
-            Console.WriteLine("Prime Anagram Numbers 0-1000 :");
-            PrimeAnagram2DArray.PrimeAnagramNumbers();
+            try
+            {
+                Console.WriteLine("Prime Anagram Numbers 0-1000 :");
+                PrimeAnagram2DArray.PrimeAnagramNumbers();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

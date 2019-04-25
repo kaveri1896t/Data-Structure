@@ -18,14 +18,9 @@ namespace Data_Structure
     public class ReadIntegerFromFile<T>
     {
         /// <summary>
-        /// The u is an instance of Utility class
-        /// </summary>
-        private Utility<int> utilityObject = new Utility<int>();
-
-        /// <summary>
         /// The Sort List is an instance of Linked List
         /// </summary>
-        private SortedLinkedList SortList = new SortedLinkedList();
+        internal SortedLinkedList SortList = new SortedLinkedList();
 
         /// <summary>
         /// The text is a string
@@ -33,11 +28,15 @@ namespace Data_Structure
         private string text;
 
         /// <summary>
+        /// The u is an instance of Utility class
+        /// </summary>
+        private Utility<int> utilityObject = new Utility<int>();
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ReadIntegerFromFile{T}"/> class.
         /// </summary>
         public void OrderedListOperation()
         {
-
             try
             {
                 char ans;
@@ -54,7 +53,7 @@ namespace Data_Structure
                     switch (ch)
                     {
                         case 1:
-                            this.text = File.ReadAllText(@"C:\Users\admin\source\repos\BridgeLabz_2019\Data Structure Program\Data_Structure\Data_Structure\InputInteger.txt");
+                            this.text = File.ReadAllText(Utility<int>.GetIntegerInputPath());
                             string[] number = this.text.Split('\n');
                             int[] numbers = new int[number.Length];
                             for (int n = 0; n < number.Length; n++)
@@ -62,6 +61,7 @@ namespace Data_Structure
                                 numbers[n] = int.Parse(number[n]);
                             }
 
+                            ////Add numbers read from file into linked list
                             foreach (int value in numbers)
                             {
                                 this.SortList = this.SortList.AddLastIntoLinkedList(this.SortList, value);
@@ -70,12 +70,16 @@ namespace Data_Structure
                             break;
 
                         case 2:
+
+                            ////print the linked list
                             Console.Write("\nnumbers read from Linked List are :\n");
                             this.SortList = this.SortList.SortLinkedList(this.SortList);
                             this.SortList = this.SortList.PrintLinkedList(this.SortList);
                             break;
 
                         case 3:
+
+                            ////Insert after given node
                             Console.WriteLine("Enter number to add : ");
                             int input1 = Convert.ToInt32(Console.ReadLine());
                             this.SortList = this.SortList.AddIntoSortedLinkedList(this.SortList, input1);
@@ -84,16 +88,22 @@ namespace Data_Structure
                             break;
 
                         case 4:
+
+                            ////Remove first element
                             this.SortList = this.SortList.RemoveFirstFromLinkedList(this.SortList);
                             Console.Write("\nNode deleted from LinkedList : ");
                             break;
 
                         case 5:
+
+                            ////Remove last node from linked list
                             this.SortList = this.SortList.RemoveLastFromLinkedList(this.SortList);
                             Console.Write("\nNode deleted from LinkedList : ");
                             break;
 
                         case 6:
+
+                            ////Remove specific node 
                             Console.Write("\nEnter the number you want to delete from LinkedList : ");
                             int data = Convert.ToInt32(Console.ReadLine());
                             this.SortList = this.SortList.RemoveAtPositionFromLinkedList(this.SortList, data);
@@ -101,9 +111,13 @@ namespace Data_Structure
                             break;
 
                         case 7:
+
+                            ////Search into linked list
                             Console.Write("\nEnter the word to search from LinkedList : ");
                             int input2 = Convert.ToInt32(Console.ReadLine());
                             bool flag = this.SortList.SearchIntoLinkedList(this.SortList, input2);
+
+                            ////if found then remove else add into linked list
                             if (flag == true)
                             {
                                 this.SortList = this.SortList.RemoveAtPositionFromLinkedList(this.SortList, input2);
@@ -132,7 +146,6 @@ namespace Data_Structure
             }
 
             return;
-
         }
     }
 }

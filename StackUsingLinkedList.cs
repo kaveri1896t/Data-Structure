@@ -9,6 +9,10 @@ namespace Data_Structure
     using System;
     using System.Collections.Generic;
     using System.Text;
+    
+    /// <summary>
+    /// Stack implementation using linked list
+    /// </summary>
     public class StackUsingLinkedList
     {
         /// <summary>
@@ -27,22 +31,23 @@ namespace Data_Structure
             try
             {
                 ////Add the data into the linked list
-                list = list.AddFirstIntoLinkedList(list, list1, number);
+                this.list = this.list.AddFirstIntoLinkedList(this.list, list1, number);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
 
-            return list;
+            return this.list;
         }
 
         /// <summary>
         /// Pop top element from stack.
         /// </summary>
         /// <param name="list1">The list1 is an integer instance of the Linked List.</param>
+        /// <param name="list">The list is an integer instance of the List.</param>
         /// <returns>Updated List</returns>
-        public LinkedList<int> PopFromStack(LinkedList<int> list1,List<int> list)
+        public LinkedList<int> PopFromStack(LinkedList<int> list1, List<int> list)
         {
             try
             {
@@ -52,7 +57,7 @@ namespace Data_Structure
                 number = list1.RemoveFirstLinkedList();
 
                 //// add that removed node from stack
-                list1.AddFirstIntoLinkedList(list1,list, number);
+                list1.AddFirstIntoLinkedList(list1, list, number);
             }
             catch (Exception e)
             {
@@ -61,6 +66,5 @@ namespace Data_Structure
 
             return list1;
         }
-
     }
 }

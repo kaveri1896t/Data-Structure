@@ -23,7 +23,7 @@ namespace Data_Structure
         /// <summary>
         /// The Amount to be taken by user for doing transaction
         /// </summary>
-        public int Amount = 0;
+        internal int Amount = 0;
 
         /// <summary>
         /// The u is an instance of Utility class
@@ -41,52 +41,59 @@ namespace Data_Structure
         /// </summary>
         public void BankCashCounterOperations()
         {
-            int choice;
-            char ans;
+            try
+            {
+                int choice;
+                char ans;
 
-            //// Insert into queue
-            for (int i = 1; i <= 2; i++)
-            {
-                this.utilityObject.InsertElementIntoQueue(i);
-            }
-            
-            ////Remove from queue if done with transactions
-            foreach (int i in this.queue1.DataElement)
-            {
-                Console.WriteLine("Visiter : ");
-                do
+                //// Insert into queue
+                for (int i = 1; i <= 2; i++)
                 {
-                    BankCashCounter bank = new BankCashCounter();
-                    Console.WriteLine("Which operation do you want to perform : ");
-                    Console.WriteLine("1.Deposit\t2.Withdrawal : ");
-                    choice = Convert.ToInt32(Console.ReadLine());
-
-                    ////Choose the type of transaction
-                    switch (choice)
-                    {
-                        case 1:
-                            //// Deposite money into the Bank
-                            Console.WriteLine("\nRemaining Bank Amount is {0} ...\n", this.utilityObject.DepositeMoney(bank));
-                            break;
-
-                        case 2:
-                            ////Withdraw money from Bank
-                            Console.WriteLine("\nRemaining Bank Amount is {0} ...\n", this.utilityObject.WithdrawMoney(bank));
-                            break;
-
-                        default:
-                            Console.WriteLine("\nWrong Choice...");
-                            break;
-                    }
-
-                    Console.WriteLine("\nDo you want to perform more transactions (y/n) : ");
-                    ans = Convert.ToChar(Console.ReadLine());
+                    this.utilityObject.InsertElementIntoQueue(i);
                 }
-                while (ans == 'y' || ans == 'Y');
-                this.utilityObject.RemoveElementFromQueue();
-            }
 
-            Console.WriteLine("\nQueue Ended..... ");
+                ////Remove from queue if done with transactions
+                foreach (int i in this.queue1.DataElement)
+                {
+                    Console.WriteLine("Visiter : ");
+                    do
+                    {
+                        BankCashCounter bank = new BankCashCounter();
+                        Console.WriteLine("Which operation do you want to perform : ");
+                        Console.WriteLine("1.Deposit\t2.Withdrawal : ");
+                        choice = Convert.ToInt32(Console.ReadLine());
+
+                        ////Choose the type of transaction
+                        switch (choice)
+                        {
+                            case 1:
+                                //// Deposite money into the Bank
+                                Console.WriteLine("\nRemaining Bank Amount is {0} ...\n", this.utilityObject.DepositeMoney(bank));
+                                break;
+
+                            case 2:
+                                ////Withdraw money from Bank
+                                Console.WriteLine("\nRemaining Bank Amount is {0} ...\n", this.utilityObject.WithdrawMoney(bank));
+                                break;
+
+                            default:
+                                Console.WriteLine("\nWrong Choice...");
+                                break;
+                        }
+
+                        Console.WriteLine("\nDo you want to perform more transactions (y/n) : ");
+                        ans = Convert.ToChar(Console.ReadLine());
+                    }
+                    while (ans == 'y' || ans == 'Y');
+                    this.utilityObject.RemoveElementFromQueue();
+                }
+
+                Console.WriteLine("\nQueue Ended..... ");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

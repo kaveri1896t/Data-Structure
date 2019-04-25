@@ -19,17 +19,17 @@ namespace Data_Structure
         /// <summary>
         /// The stack size 
         /// </summary>
-        public static int StackSize;
+        internal static int StackSize;
 
         /// <summary>
         /// The top is the index of top element in stack
         /// </summary>
-        public static int Top;
+        internal static int Top;
 
         /// <summary>
         /// The Element is the list of element in stack
         /// </summary>
-        public T[] StackElements;
+        internal T[] StackElements;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Stack{T}"/> class.
